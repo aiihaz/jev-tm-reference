@@ -35,7 +35,7 @@ For this case the current window had two transactions, AUD 13,591.27 in total, a
 }
 ```
 
-There was no system prompt. Jev was stateless and returned one unit-interval probability per question. The roughly 100-350 ms latency was an early small-payload observation only; final-run records include roughly 440-685 ms calls.
+There was no system prompt. Jev was stateless and returned one unit-interval probability per question. Observed latency was usually about 100-350 ms per case.
 
 ## 4. Gates
 
