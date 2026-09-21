@@ -1,1 +1,6 @@
-{"Q4_velocity_shift": 0.70}
+{
+  "Q1_pass_through": 0.18,
+  "Q2_coordination": 0.13,
+  "Q4_velocity_shift": 0.7,
+  "QI_integration": 0.11
+}
