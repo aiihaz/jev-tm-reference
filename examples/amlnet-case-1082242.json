@@ -1,0 +1,28 @@
+{
+  "case_id": "amlnet-case-1082242",
+  "source_row_id": 1082242,
+  "dataset": "AMLNet (Zenodo 16736515), fresh-500 validation draw v1 (salt amlnet-fresh500-v1-2026-09-19) - one of the three fresh 500-case draws that form the final 1,500-case set",
+  "label": "laundering (planted positive in AMLNet)",
+  "typology_class": "Collection account / zero-path dormant receiver (walkthrough class B; layering with parking)",
+  "final_config": "Exp12 a9fix, packet schema amlnet-episode-battery-exp12-v2.1, model jev-1.13.0",
+  "score": 0.7,
+  "outcome": "CAUGHT at the final 0.65 operating point (0.70 >= 0.65). It was a near-miss only at the stricter 0.75 line used during the miss autopsy.",
+  "per_question_note": "Zero forward paths from the anchor, so Q1 and Q2 were ineligible and QI never counts; Q4 alone carried the case, so the 0.70 final score is Q4_velocity_shift's score under the rule final = max(Q1 iff paths>=1, Q2 iff paths>=2, Q4 always; QI never).",
+  "packet_excerpts_verbatim": {
+    "anchor_transaction (complete apart from category, cut off mid-value in the source print)": "{\"transaction_id\": \"amlnet-row-1082242\", \"source_row_id\": 1082242, \"timestamp\": \"2025-08-05T13:20:46.770518\", \"sender_id\": \"C3501\", \"receiver_id\": \"C5105\", \"amount\": 13094.950084335489, \"currency\": \"AUD\", \"amount_received\": null, \"receiving_currency\": null, \"payment_type\": \"TRANSFER\", \"category\": \"O...(truncated in source)",
+    "current (complete)": "{\"transaction_count\": 2, \"value\": 13591.267040509067, \"inbound_value\": 13094.950084335489, \"outbound_value\": 13591.267040509067, \"onward_ratio\": 1.03790140114908, \"counterparty_count\": 2, \"first_seen_counterparty_share\": 0.0, \"payment_mix\": {\"TRANSFER\": 2}, \"category_mix\": {\"Other\": 2}}",
+    "baseline (truncated in source print)": "{\"coverage_days\": 185, \"transaction_count\": 305, \"daily_median_count\": 1, \"daily_median_value\": 218.81818205404565, \"current_to_median_count_ratio\": 2.0, \"current_to_median_value_ratio\": 62.11214677376387, \"daily_median_count_nonzero\": 2, \"daily_median_value_nonzero\": 355.02485769354666, ...(truncated in source)",
+    "extended_baseline (truncated in source print)": "{\"window_days_available\": 180, \"per_category\": {\"Housing\": {\"precedent_count\": 5, \"max_value\": 4004.1, \"count_with_value_ge_50pct_current\": 0, \"count_with_value_ge_50pct_anchor\": 0, \"most_recent_date\": \"2025-06-17\"}, \"Food\": {\"precedent_count\": 5, \"max_value\": 485.26, ...(truncated in source)",
+    "ordinary_explanations (complete)": "{\"recurring_timing\": [], \"recurring_timing_category\": null, \"category_established\": false, \"counterparty_continuity\": 1.0, \"payroll_like\": {\"sender_id\": \"C300\", \"prior_dates\": [\"2025-02-06\", \"2025-06-03\", \"2025-06-05\", \"2025-06-06\", \"2025-07-07\"]}, \"precedent_strength\": \"weak\"}"
+  },
+  "analyst_walkthrough_verbatim": {
+    "what_the_money_did": "C3501 transfers $13,095 to C5105 - and C5105 never sends anything onward.",
+    "what_the_judge_saw": "the signature, almost fully. C5105 collected from 6 distinct senders in 30 days, but its total monthly intake before this transfer was only $1,510 - this one transfer is 8.7x everything the account recently collected. Then silence. The judge weighed the collection-then-silence pattern (we taught it to) and landed at 0.70 - below the 0.75 line.",
+    "why_it_couldnt_convict_at_0.75": "collection accounts exist in ordinary life too (a friend pooling rent, a parent collecting from kids). With no forward path and no value loss visible, Q4's taught ceiling for this signature sits under conviction."
+  },
+  "provenance": {
+    "score_and_narrative": "EXP12_MISS_WALKTHROUGH_2026-09-19.md, written 2026-09-19 ~09:45 IST from the actual a9fix fresh-500 v1 validation packets (agent chat-01M2V24875M578TCZ4GQMD5G26)",
+    "packet_fields": "verbatim a9fix-vs-Amend10 packet diff print for amlnet-case-1082242, same agent transcript, 2026-09-19 09:59-10:00 IST (a9fix column shown)",
+    "draw": "fresh500_draw.json salt amlnet-fresh500-v1-2026-09-19; validation plan out/exp12/call_plan.jsonl (sha 03750e38...), 500/500 HTTP 200"
+  }
+}
