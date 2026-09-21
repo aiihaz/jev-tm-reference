@@ -1,0 +1,9 @@
+{
+  "schema_version": "amlnet-episode-battery-exp12-v2.1-reference",
+  "anchor_window_hours": 24,
+  "baseline_days": 30,
+  "extended_baseline_start_days": 30,
+  "extended_baseline_end_days": 180,
+  "max_forward_hops": 2,
+  "sections": ["anchor_transaction", "current", "baseline", "forward_paths", "chain_dissipation", "endpoint_network", "receiver_network", "extended_baseline", "ordinary_explanations", "post_credit_stasis", "baseline_sufficiency"]
+}
