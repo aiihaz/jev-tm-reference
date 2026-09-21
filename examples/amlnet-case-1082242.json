@@ -7,7 +7,7 @@
   "final_config": "Exp12 a9fix, packet schema amlnet-episode-battery-exp12-v2.1, model jev-1.13.0",
   "score": 0.7,
   "outcome": "CAUGHT at the final 0.65 operating point (0.70 >= 0.65). It was a near-miss only at the stricter 0.75 line used during the miss autopsy.",
-  "per_question_note": "Zero forward paths from the anchor, so Q1 and Q2 were ineligible and QI never counts; Q4 alone carried the case, so the 0.70 final score is Q4_velocity_shift's score under the rule final = max(Q1 iff paths>=1, Q2 iff paths>=2, Q4 always; QI never).",
+  "per_question_note": "Zero forward paths from the anchor, so Q1 and Q2 were returned but deterministically excluded as ineligible; QI was returned but never counts. Raw answers were Q1=0.18, Q2=0.13, Q4=0.70, QI=0.11. Q4 alone carried the case, so the final score was 0.70 under final = max(Q1 iff paths>=1, Q2 iff paths>=2, Q4 always; QI never).",
   "packet_excerpts_verbatim": {
     "anchor_transaction (complete apart from category, cut off mid-value in the source print)": "{\"transaction_id\": \"amlnet-row-1082242\", \"source_row_id\": 1082242, \"timestamp\": \"2025-08-05T13:20:46.770518\", \"sender_id\": \"C3501\", \"receiver_id\": \"C5105\", \"amount\": 13094.950084335489, \"currency\": \"AUD\", \"amount_received\": null, \"receiving_currency\": null, \"payment_type\": \"TRANSFER\", \"category\": \"O...(truncated in source)",
     "current (complete)": "{\"transaction_count\": 2, \"value\": 13591.267040509067, \"inbound_value\": 13094.950084335489, \"outbound_value\": 13591.267040509067, \"onward_ratio\": 1.03790140114908, \"counterparty_count\": 2, \"first_seen_counterparty_share\": 0.0, \"payment_mix\": {\"TRANSFER\": 2}, \"category_mix\": {\"Other\": 2}}",
