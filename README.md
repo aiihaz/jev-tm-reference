@@ -36,9 +36,9 @@ On the frozen 1,000 cases, 500 planted laundering and 500 normal:
 | Version | Strict point: caught | Strict point: false flags | Loose point: caught | Loose point: false flags |
 |---|---:|---:|---:|---:|
 | Exp9 | 430 | 192 | 481 | 302 |
-| Exp10 | 105 | 19 | - | - |
+| Exp10 | 105 | 19 | 341 | 130 |
 | Exp10b | 135 | 27 | 436 | 156 |
-| Exp11 | 160 | 0 | - | - |
+| Exp11 | 160 | 0 | 383 | 133 |
 | **a9fix** | **202** | **0** | **426** | **68** |
 
 Those points compare the recorded strict and loose thresholds, not one universal threshold. a9fix beat the earlier lines at each recorded point. Across three fresh 500-case draws, the final catch-first operating point produced **681/750 caught (90.8%)** and **204/750 false flags (27.2%)**. Traditional logistic regression did better on this synthetic corpus. That is part of the result, not a footnote.
@@ -95,7 +95,9 @@ The engine reads these files at runtime. Fork it, change one file, rerun, and ke
 - **Q4 behaviour shift** asks whether the current 24-hour window is a material, unexplained departure from the account's own history. It is always eligible.
 - **QI integration** asks whether money appears to enter a legitimate-looking asset or merchant channel. It is diagnostic only and never changes the final score.
 
-Read [the question guide](docs/questions.md) for the evidence each one weighs and why the original six-question battery became three counting questions plus one diagnostic.
+Two former standalone questions are still part of the design history. **Q5 counterparty shift** asked whether the counterparty pattern materially broke from prior history; it was folded into Q4 as counterparty continuity and novelty. **Q6 dwell shift** asked whether retention or onward-transfer behaviour departed from baseline; it was folded into Q4 as `post_credit_stasis`. **Q7 mode shift** was cut entirely because the final packet did not carry the payment-method or currency-mix data needed to answer it.
+
+Read [the question guide](docs/questions.md) for the exact former Q5 and Q6 wording, what happened to each one, and the full six-to-three story.
 
 ## One real case
 
