@@ -1,0 +1,10 @@
+{
+  "method": "max",
+  "operating_threshold": 0.65,
+  "questions": {
+    "Q1_pass_through": {"count": true, "minimum_forward_paths": 1},
+    "Q2_coordination": {"count": true, "minimum_forward_paths": 2},
+    "Q4_velocity_shift": {"count": true, "minimum_forward_paths": 0},
+    "QI_integration": {"count": false, "minimum_forward_paths": 0}
+  }
+}
