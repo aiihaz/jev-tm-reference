@@ -41,9 +41,9 @@ On the frozen 1,000 cases, 500 planted laundering and 500 normal:
 | Exp11 | 160 | 0 | 383 | 133 |
 | **a9fix** | **202** | **0** | **426** | **68** |
 
-Those points compare the recorded strict and loose thresholds, not one universal threshold. a9fix beat the earlier lines at each recorded point. Across three fresh 500-case draws, the final catch-first operating point produced **681/750 caught (90.8%)** and **204/750 false flags (27.2%)**. Traditional logistic regression did better on this synthetic corpus. That is part of the result, not a footnote.
+At its recorded 0.85 strict point, a9fix had 202 catches and 0 false flags; at 0.70 it had 426 catches and 68 false flags. Cross-version strict points are not directly matched: Exp9-11 used 0.83, while a9fix used 0.85. Across three fresh 500-case draws, the final catch-first operating point produced **681/750 caught (90.8%)** and **204/750 false flags (27.2%)**. Traditional logistic regression did better on this synthetic corpus. That is part of the result, not a footnote.
 
-The evaluation made over **13,900 verified successful calls**, used roughly **$4 of a $5 monthly credit**, and tested **15 Exp12 wording amendments**. An independent repeat produced **0.992 rank correlation** and the same top 50, **50 for 50**.
+The evaluation made over **13,900 verified successful calls**, used roughly **$4 of a $5 monthly credit**, and logged **15 Exp12 amendments**. Not all completed or shipped: Amend12 was tested but not adopted, Amend13 was tested and rejected, and Amend15 stopped mid-run and was discarded. An independent repeat produced **0.992 rank correlation** and the same top 50, **50 for 50**.
 
 This does not prove production AML accuracy. AMLNet is synthetic, and the remaining separation problem was mostly missing context: KYC/KYB, purpose, merchant registries and relationship history.
 
@@ -95,7 +95,7 @@ The engine reads these files at runtime. Fork it, change one file, rerun, and ke
 - **Q4 behaviour shift** asks whether the current 24-hour window is a material, unexplained departure from the account's own history. It is always eligible.
 - **QI integration** asks whether money appears to enter a legitimate-looking asset or merchant channel. It is diagnostic only and never changes the final score.
 
-Two former standalone questions are still part of the design history. **Q5 counterparty shift** asked whether the counterparty pattern materially broke from prior history; it was folded into Q4 as counterparty continuity and novelty. **Q6 dwell shift** asked whether retention or onward-transfer behaviour departed from baseline; it was folded into Q4 as `post_credit_stasis`. **Q7 mode shift** was cut entirely because the final packet did not carry the payment-method or currency-mix data needed to answer it.
+Three former standalone questions are still part of the design history. **Q5 counterparty shift** asked whether the counterparty pattern materially broke from prior history; it was folded into Q4 as counterparty continuity and novelty. **Q6 dwell shift** asked whether retention or onward-transfer behaviour departed from baseline; it was folded into Q4 as `post_credit_stasis`. **Q7 mode shift** was cut entirely because the final packet did not carry the payment-method or currency-mix data needed to answer it.
 
 Read [the question guide](docs/questions.md) for the exact former Q5 and Q6 wording, what happened to each one, and the full six-to-three story.
 
@@ -107,7 +107,7 @@ The included `amlnet-case-1082242` is a planted AMLNet positive. C3501 sent AUD 
 max(Q4 = 0.70) = 0.70 >= 0.65
 ```
 
-It was caught at the final operating point and would have been a near-miss at 0.75. Returned values for ineligible Q1, Q2 and diagnostic QI were not recorded, so this repo does not invent them.
+It was caught at the final operating point and would have been a near-miss at 0.75. Jev returned Q1 = 0.18, Q2 = 0.13 and QI = 0.11. Code excluded Q1 and Q2 as ineligible because the case had zero paths; QI was returned but remained diagnostic-only. None changed the final score.
 
 Walk the case end to end in [`docs/architecture.md`](docs/architecture.md).
 
