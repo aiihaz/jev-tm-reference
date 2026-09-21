@@ -35,7 +35,7 @@ For this case the current window had two transactions, AUD 13,591.27 in total, a
 }
 ```
 
-There was no system prompt. Jev was stateless and returned one unit-interval probability per question.
+There was no system prompt. Jev was stateless and returned one unit-interval probability per question. The roughly 100-350 ms latency was an early small-payload observation only; final-run records include roughly 440-685 ms calls.
 
 ## 4. Gates
 
@@ -44,7 +44,7 @@ There was no system prompt. Jev was stateless and returned one unit-interval pro
 - Q4 is always eligible.
 - QI never counts.
 
-The preserved result records Q4 at 0.70. Values for Q1, Q2 and QI were not recorded.
+The raw result records Q1 at 0.18, Q2 at 0.13, Q4 at 0.70 and QI at 0.11. Code excluded Q1 and Q2 as ineligible because the case had zero paths. QI was returned but remained diagnostic-only. Only Q4 counted.
 
 ## 5. Combiner
 
